@@ -1,7 +1,7 @@
 public class InkRefill extends Refill {
 
     public InkRefill(String color) {
-        super(color);
+        super(color , PenType.INK);
     }
 
     @Override

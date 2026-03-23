@@ -1,16 +1,22 @@
-public abstract  class Refill{
+
+public abstract class Refill {
 
     private final String color;
+    private final PenType penType;
 
-    public Refill(String color){
+    public Refill(String color, PenType penType) {
         this.color = color;
+        this.penType = penType;
     }
 
-    public String getColor(){
+    public String getColor() {
         return this.color;
     }
 
-    public abstract void write(String text);
+    public PenType getPenType() {
+        return penType;
+    }
 
+    public abstract void write(String text);
 
 }

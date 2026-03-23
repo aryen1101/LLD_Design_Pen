@@ -2,7 +2,7 @@
 public class BallRefill extends Refill {
 
     public BallRefill(String color) {
-        super(color);
+        super(color , PenType.BALLPOINT);
     }
 
     @Override

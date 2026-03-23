@@ -1,10 +1,17 @@
+
 public class Pen {
 
+    private final PenType penType;
     private Refill refill;
     private final Mechanism mechanism;
     private boolean isReady;
 
-    public Pen(Refill refill , Mechanism mechanism){
+    public Pen(PenType penType, Refill refill, Mechanism mechanism) {
+
+        if (refill != null && refill.getPenType() != penType) {
+            throw new IllegalArgumentException("Mismatch! Cannot put " + refill.getPenType() + " into " + penType + " pen.");
+        }
+        this.penType = penType;
         this.refill = refill;
         this.mechanism = mechanism;
         this.isReady = false;
@@ -36,10 +43,15 @@ public class Pen {
         }
         refill.write(text);
     }
-    
+
     public void changeRefill(Refill newRefill) {
+
+        if (newRefill.getPenType() != this.penType) {
+            System.out.println("You cannot put a " + newRefill.getPenType() + " refill into a " + this.penType + " pen!");
+            return;
+        }
         this.refill = newRefill;
         System.out.println("Old refill removed. Pen loaded with a new " + newRefill.getColor() + " refill.");
     }
-    
+
 }

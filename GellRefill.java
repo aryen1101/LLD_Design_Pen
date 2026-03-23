@@ -2,7 +2,7 @@
 public class GellRefill extends Refill {
 
     public GellRefill(String color) {
-        super(color);
+        super(color , PenType.GELL);
     }
 
     @Override
